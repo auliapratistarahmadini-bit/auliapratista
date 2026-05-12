@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>🌸 Aulia Pratista | Portofolio Kreatif</title>
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', 'Quicksand', sans-serif;
+      background: linear-gradient(125deg, #FFE0C0 0%, #FFD9E6 40%, #C5E9FF 100%);
+      min-height: 100vh;
+      padding: 2rem 1.5rem;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* ===== BANYAK HIASAN BUNGA BERGERAK (lucu & penuh) ===== */
+    .floating-flower {
+      position: fixed;
+      pointer-events: none;
+      z-index: 5;
+      font-size: 1.8rem;
+      opacity: 0.55;
+      animation: floatSweet 14s infinite ease-in-out;
+      filter: drop-shadow(0 6px 12px rgba(0,0,0,0.08));
+    }
+
+    @keyframes floatSweet {
+      0% { transform: translate(0, 0) rotate(0deg) scale(1); }
+      33% { transform: translate(22px, -20px) rotate(12deg) scale(1.1); }
+      66% { transform: translate(-18px, 18px) rotate(-9deg) scale(0.95); }
+      100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+    }
+
+    .flower1 { top: 3%; left: 2%; animation-duration: 19s; font-size: 2.2rem; }
+    .flower2 { bottom: 5%; right: 3%; animation-duration: 15s; font-size: 2.5rem; }
+    .flower3 { top: 15%; right: 5%; animation-duration: 22s; font-size: 2rem; }
+    .flower4 { bottom: 18%; left: 4%; animation-duration: 17s; font-size: 2.1rem; }
+    .flower5 { top: 45%; left: 88%; animation-duration: 20s; font-size: 2.3rem; }
+    .flower6 { top: 70%; left: 10%; animation-duration: 24s; font-size: 1.9rem; }
+    .flower7 { bottom: 40%; right: 10%; animation-duration: 16s; font-size: 2rem; }
+    .flower8 { top: 85%; left: 40%; animation-duration: 21s; font-size: 2rem; }
+    .flower9 { top: 12%; left: 45%; animation-duration: 18s; font-size: 1.8rem; }
+    .flower10 { top: 30%; left: 20%; animation-duration: 23s; font-size: 2rem; }
+    .flower11 { bottom: 65%; right: 20%; animation-duration: 14s; font-size: 1.7rem; }
+    .flower12 { top: 55%; left: 12%; animation-duration: 25s; font-size: 2.4rem; }
+    .flower13 { bottom: 12%; left: 28%; animation-duration: 19s; font-size: 2rem; }
+    .flower14 { top: 80%; right: 35%; animation-duration: 17s; font-size: 1.9rem; }
+
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 20;
+    }
+
+    /* Profile Card - bentuk unik */
+    .profile-card {
+      background: rgba(255, 248, 235, 0.85);
+      backdrop-filter: blur(12px);
+      border-radius: 60px 40px 60px 40px;
+      padding: 1.8rem 2rem;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 25px 40px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+      border: 1px solid rgba(255, 215, 180, 0.9);
+      transform: rotate(0.5deg);
+      transition: 0.2s;
+    }
+    .avatar-frame {
+      position: relative;
+      width: 140px;
+      height: 140px;
+      background: linear-gradient(145deg, #ffe0e8, #ffc0d0);
+      border-radius: 40% 60% 45% 55% / 50% 40% 60% 50%;
+      overflow: hidden;
+      box-shadow: 0 20px 30px rgba(0,0,0,0.15);
+      border: 3px solid white;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .avatar-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .avatar-frame:hover {
+      transform: scale(1.02) rotate(1deg);
+    }
+    .avatar-label {
+      position: absolute;
+      bottom: 0;
+      background: rgba(0,0,0,0.6);
+      color: white;
+      font-size: 0.7rem;
+      width: 100%;
+      text-align: center;
+      padding: 4px;
+      cursor: pointer;
+      font-weight: 500;
+    }
+    .info h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #C85C7E, #AA6F9E, #F4A261);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .info-details {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 0.8rem;
+    }
+    .info-details span {
+      background: rgba(255, 235, 210, 0.9);
+      padding: 0.4rem 1.2rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    /* ===== VARIASI KOLOM (bentuk beda-beda) ===== */
+    .category-card {
+      margin-bottom: 2rem;
+      transition: all 0.3s;
+      filter: drop-shadow(0 10px 15px rgba(0,0,0,0.05));
+    }
+    .cat-1 { border-radius: 48px 24px 56px 32px; }
+    .cat-2 { border-radius: 32px 56px 40px 64px; }
+    .cat-3 { border-radius: 56px 32px 48px 40px; }
+
+    .category-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.4rem 2rem;
+      cursor: pointer;
+      background: rgba(255, 245, 230, 0.88);
+      backdrop-filter: blur(6px);
+      transition: 0.2s;
+      border: 1px solid rgba(255, 215, 180, 0.7);
+    }
+    .cat-1 .category-header { border-radius: 48px 24px 56px 32px; }
+    .cat-2 .category-header { border-radius: 32px 56px 40px 64px; }
+    .cat-3 .category-header { border-radius: 56px 32px 48px 40px; }
+
+    .category-header:hover {
+      background: rgba(255, 235, 210, 0.95);
+      transform: translateY(-2px);
+    }
+    .category-title {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: #98506d;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .toggle-icon {
+      font-size: 1.6rem;
+      color: #d884a2;
+      transition: transform 0.4s;
+    }
+    .category-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.55s cubic-bezier(0.33, 1, 0.68, 1);
+      padding: 0 2rem;
+      background: rgba(255, 250, 240, 0.85);
+      backdrop-filter: blur(4px);
+      border-radius: inherit;
+    }
+    .category-card.open .category-content {
+      max-height: 1200px;
+      padding: 0 2rem 1.8rem 2rem;
+      border-radius: inherit;
+    }
+    .category-card.open .toggle-icon {
+      transform: rotate(180deg);
+    }
+
+    .desc-box {
+      background: #fff2e6e6;
+      padding: 0.8rem 1.3rem;
+      border-radius: 28px;
+      margin: 1rem 0 1.5rem 0;
+      font-weight: 500;
+      color: #3a2c3a;
+      border-left: 8px solid #f7b787;
+    }
+
+    /* Galeri horizontal scroll */
+    .gallery-scroll {
+      display: flex;
+      overflow-x: auto;
+      gap: 1.5rem;
+      padding-bottom: 1rem;
+      scrollbar-width: thin;
+      scroll-behavior: smooth;
+    }
+    .gallery-scroll::-webkit-scrollbar {
+      height: 7px;
+    }
+    .gallery-scroll::-webkit-scrollbar-track {
+      background: #fad0dd;
+      border-radius: 12px;
+    }
+    .gallery-scroll::-webkit-scrollbar-thumb {
+      background: #c47b99;
+      border-radius: 12px;
+    }
+    .photo-item {
+      flex: 0 0 auto;
+      width: 280px;
+      background: #fffef7;
+      border-radius: 32px;
+      padding: 0.7rem;
+      box-shadow: 0 12px 20px rgba(0,0,0,0.08);
+      transition: 0.2s;
+      cursor: pointer;
+    }
+    .photo-item.large {
+      width: 300px;
+    }
+    .photo-frame {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      background: #fce4ec;
+      border-radius: 24px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px dashed #e6a0bb;
+      transition: 0.2s;
+    }
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .photo-label {
+      text-align: center;
+      font-size: 0.7rem;
+      margin-top: 8px;
+      color: #bb6f8c;
+      font-weight: 500;
+    }
+
+    /* Menu Jualan (OSIS) */
+    .menu-shop {
+      background: #ffe1d4e6;
+      border-radius: 40px;
+      padding: 1rem 1.3rem;
+      margin-top: 1.5rem;
+    }
+    .menu-title {
+      font-weight: 800;
+      font-size: 1.2rem;
+      color: #b5466c;
+      margin-bottom: 0.8rem;
+    }
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+      gap: 0.8rem;
+    }
+    .menu-item {
+      background: white;
+      padding: 0.6rem 1rem;
+      border-radius: 100px;
+      display: flex;
+      justify-content: space-between;
+      font-weight: 600;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    /* Kontak */
+    .contact-strip {
+      background: rgba(255, 240, 225, 0.92);
+      backdrop-filter: blur(8px);
+      border-radius: 70px;
+      padding: 1rem 1.8rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin: 2.5rem 0 1rem;
+    }
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: white;
+      padding: 0.65rem 1.8rem;
+      border-radius: 60px;
+      text-decoration: none;
+      font-weight: 600;
+      color: #2c2c2c;
+      transition: 0.25s;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+    }
+    .social-link:hover {
+      transform: translateY(-5px);
+      background: #fffbf5;
+      box-shadow: 0 12px 20px rgba(0,0,0,0.1);
+    }
+    .wa { color: #25D366; }
+    .ig { color: #E4405F; }
+    .tt { color: #000000; }
+    footer {
+      text-align: center;
+      font-size: 0.7rem;
+      opacity: 0.7;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 700px) {
+      body { padding: 1rem; }
+      .profile-card { flex-direction: column; text-align: center; }
+      .info h1 { font-size: 1.8rem; }
+      .photo-item, .photo-item.large { width: 240px; }
+      .category-title { font-size: 1.3rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- BUNGA BERGERAK BANYAK -->
+<div class="floating-flower flower1">🌸</div>
+<div class="floating-flower flower2">🌼</div>
+<div class="floating-flower flower3">🌻</div>
+<div class="floating-flower flower4">🌺</div>
+<div class="floating-flower flower5">🌸</div>
+<div class="floating-flower flower6">🏵️</div>
+<div class="floating-flower flower7">🌷</div>
+<div class="floating-flower flower8">💮</div>
+<div class="floating-flower flower9">🌼</div>
+<div class="floating-flower flower10">🌻</div>
+<div class="floating-flower flower11">🌸</div>
+<div class="floating-flower flower12">🌺</div>
+<div class="floating-flower flower13">🌼</div>
+<div class="floating-flower flower14">🌷</div>
+
+<div class="container">
+  <!-- Profile Card -->
+  <div class="profile-card">
+    <div class="avatar-frame" id="avatarUploader">
+      <img id="profileImg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23f2c1d0'%3E%3Cpath d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/%3E%3C/svg%3E" alt="profile">
+      <div class="avatar-label"><i class="fas fa-camera"></i> ganti foto</div>
+    </div>
+    <div class="info">
+      <h1>Aulia Pratista Rahmadini</h1>
+      <div class="info-details">
+        <span><i class="fas fa-map-marker-alt"></i> Sidoarjo, 8 Maret 2007</span>
+        <span><i class="fas fa-graduation-cap"></i> D4-Teknik Pengolahan Limbah</span>
+        <span><i class="fas fa-university"></i> Politeknik Perkapalan Negeri Surabaya</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- KATEGORI 1: OLIMPIADE -->
+  <div class="category-card cat-1" id="catOlimpiade">
+    <div class="category-header">
+      <div class="category-title"><i class="fas fa-flask"></i> Olimpiade Kimia & Matematika</div>
+      <i class="fas fa-chevron-down toggle-icon"></i>
+    </div>
+    <div class="category-content">
+      <div class="desc-box">
+        📚 <strong>Keterangan:</strong> Dimasa SMA saya sempat mengikuti Olimpiade Kimia dan Olimpiade Matematika. 
+        Pengalaman berharga yang mengasah logika, ketelitian, dan daya saing.
+      </div>
+      <div class="gallery-scroll" id="olympicGallery"></div>
+      <div class="photo-label"><i class="fas fa-arrow-left"></i> geser • klik foto untuk upload <i class="fas fa-arrow-right"></i></div>
+    </div>
+  </div>
+
+  <!-- KATEGORI 2: OSIS SMAHATMA + JUALAN -->
+  <div class="category-card cat-2" id="catOsis">
+    <div class="category-header">
+      <div class="category-title"><i class="fas fa-users"></i> OSIS SMAHATMA</div>
+      <i class="fas fa-chevron-down toggle-icon"></i>
+    </div>
+    <div class="category-content">
+      <div class="desc-box">
+        🎯 <strong>Keterangan:</strong> Pada masa SMA saya bergabung pada Organisasi Siswa Intra Sekolah selama 2 periode, 
+        menjabat sebagai <strong>Ketua Sekbid Kreativitas, Keterampilan dan Kewirausahaan</strong> selama 1 periode. 
+        Aktif mengembangkan event dan jiwa kepemimpinan.
+      </div>
+      <div class="gallery-scroll" id="osisGallery"></div>
+      <div class="photo-label"><i class="fas fa-images"></i> 3 foto kegiatan (klik bingkai untuk upload)</div>
+      
+      <div class="menu-shop">
+        <div class="menu-title"><i class="fas fa-store"></i> 🍽️ UMKM - Aneka Jajanan</div>
+        <div class="menu-grid">
+          <div class="menu-item"><span>🥟 Dimsum</span> <span>Rp 10.000</span></div>
+          <div class="menu-item"><span>🍚 Rice Bowl</span> <span>Rp 15.000</span></div>
+          <div class="menu-item"><span>🍈 Melon Squash</span> <span>Rp 8.000</span></div>
+          <div class="menu-item"><span>🌿 Keripik Pangsit Seaweed</span> <span>Rp 5.000</span></div>
+        </div>
+        <div style="font-size:0.7rem; margin-top:10px; text-align:center;">✨ Pemesanan via WhatsApp tersedia! ✨</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KATEGORI 3: HIMATEKPL (SEKARANG 1 FOTO) -->
+  <div class="category-card cat-3" id="catHimatekpl">
+    <div class="category-header">
+      <div class="category-title"><i class="fas fa-leaf"></i> HIMATEKPL (Himpunan Mahasiswa)</div>
+      <i class="fas fa-chevron-down toggle-icon"></i>
+    </div>
+    <div class="category-content">
+      <div class="desc-box">
+        🌱 <strong>Keterangan:</strong> Pada tahun ini saya baru bergabung dalam Organisasi Mahasiswa. Saya bergabung pada 
+        <strong>Departemen Dalam Negeri</strong> selaku Bendahara Departemen Dalam Negeri. Belajar mengelola keuangan, administrasi, dan kerjasama tim.
+      </div>
+      <div class="gallery-scroll" id="himatekplGallery"></div>
+      <div class="photo-label"><i class="fas fa-camera-retro"></i> 1 foto dokumentasi (klik bingkai untuk upload)</div>
+    </div>
+  </div>
+
+  <!-- Kontak -->
+  <div class="contact-strip">
+    <a href="https://wa.me/6281334882081" target="_blank" class="social-link" rel="noopener noreferrer">
+      <i class="fab fa-whatsapp wa fa-lg"></i> WhatsApp
+    </a>
+    <a href="https://instagram.com/auliaprtsta" target="_blank" class="social-link" rel="noopener noreferrer">
+      <i class="fab fa-instagram ig fa-lg"></i> @auliaprtsta
+    </a>
+    <a href="https://tiktok.com/@auliaprtsta" target="_blank" class="social-link" rel="noopener noreferrer">
+      <i class="fab fa-tiktok tt fa-lg"></i> @auliaprtsta
+    </a>
+  </div>
+  <footer>🌸 Klik judul kategori untuk buka detail & galeri | Semua foto tersimpan otomatis di perangkat 🌸</footer>
+</div>
+
+<script>
+  // ========== LOCALSTORAGE UNTUK SEMUA FOTO ==========
+  const STORAGE_KEYS = {
+    profile: 'aulia_profile_img',
+    olympic: 'aulia_olympic_imgs',
+    osis: 'aulia_osis_imgs',
+    himatekpl: 'aulia_himatekpl_imgs'
+  };
+
+  // jumlah foto: Olimpiade 2, OSIS 3, HIMATEKPL 1
+  let olympicImages = new Array(2).fill(null);
+  let osisImages = new Array(3).fill(null);
+  let himatekplImages = new Array(1).fill(null);  // DIUBAH JADI 1 FOTO
+  let profileBase64 = null;
+
+  function loadFromStorage() {
+    const savedProfile = localStorage.getItem(STORAGE_KEYS.profile);
+    if (savedProfile) profileBase64 = savedProfile;
+    
+    const oly = localStorage.getItem(STORAGE_KEYS.olympic);
+    if (oly) {
+      try {
+        const parsed = JSON.parse(oly);
+        if (Array.isArray(parsed) && parsed.length === 2) olympicImages = parsed;
+        else olympicImages = new Array(2).fill(null);
+      } catch(e) { olympicImages = new Array(2).fill(null); }
+    }
+    
+    const os = localStorage.getItem(STORAGE_KEYS.osis);
+    if (os) {
+      try {
+        const parsed = JSON.parse(os);
+        if (Array.isArray(parsed) && parsed.length === 3) osisImages = parsed;
+        else osisImages = new Array(3).fill(null);
+      } catch(e) { osisImages = new Array(3).fill(null); }
+    }
+    
+    const him = localStorage.getItem(STORAGE_KEYS.himatekpl);
+    if (him) {
+      try {
+        const parsed = JSON.parse(him);
+        // Jika data lama masih 2 foto, ambil foto pertama saja (index 0) atau buat array 1 elemen
+        if (Array.isArray(parsed) && parsed.length >= 1) {
+          himatekplImages = [parsed[0] || null];
+        } else {
+          himatekplImages = new Array(1).fill(null);
+        }
+      } catch(e) { himatekplImages = new Array(1).fill(null); }
+    }
+    
+    // Pastikan panjang array sesuai
+    if (olympicImages.length !== 2) olympicImages = new Array(2).fill(null);
+    if (osisImages.length !== 3) osisImages = new Array(3).fill(null);
+    if (himatekplImages.length !== 1) himatekplImages = new Array(1).fill(null);
+  }
+
+  function saveOlympic() { localStorage.setItem(STORAGE_KEYS.olympic, JSON.stringify(olympicImages)); }
+  function saveOsis() { localStorage.setItem(STORAGE_KEYS.osis, JSON.stringify(osisImages)); }
+  function saveHimatekpl() { localStorage.setItem(STORAGE_KEYS.himatekpl, JSON.stringify(himatekplImages)); }
+  function saveProfile() { if (profileBase64) localStorage.setItem(STORAGE_KEYS.profile, profileBase64); }
+
+  function createPhotoElement(imgBase64, index, category, sizeClass = 'large') {
+    const photoDiv = document.createElement('div');
+    photoDiv.className = `photo-item ${sizeClass}`;
+    const frame = document.createElement('div');
+    frame.className = 'photo-frame';
+    const img = document.createElement('img');
+    if (imgBase64 && imgBase64 !== '') {
+      img.src = imgBase64;
+    } else {
+      img.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ecccd9"%3E%3Cpath d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 8h-4v4h-4v-4H6V9h4V5h4v4h4v2z"%3E%3C/path%3E%3C/svg%3E';
+      img.style.background = '#fae1ea';
+      img.style.objectFit = 'contain';
+    }
+    img.style.width = '100%';
+    img.style.height = '100%';
+    img.style.objectFit = 'cover';
+    frame.appendChild(img);
+    const label = document.createElement('div');
+    label.className = 'photo-label';
+    label.innerHTML = `<i class="fas fa-plus-circle"></i> tambah/edit foto`;
+    photoDiv.appendChild(frame);
+    photoDiv.appendChild(label);
+    
+    frame.addEventListener('click', (e) => {
+      e.stopPropagation();
+      uploadImageCallback(category, index, (newBase64) => {
+        if (newBase64) {
+          if (category === 'olympic') { olympicImages[index] = newBase64; saveOlympic(); renderOlympic(); }
+          else if (category === 'osis') { osisImages[index] = newBase64; saveOsis(); renderOsis(); }
+          else if (category === 'himatekpl') { himatekplImages[index] = newBase64; saveHimatekpl(); renderHimatekpl(); }
+        }
+      });
+    });
+    return photoDiv;
+  }
+
+  function uploadImageCallback(category, index, callback) {
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = 'image/*';
+    input.onchange = (e) => {
+      const file = e.target.files[0];
+      if (file && file.type.startsWith('image/')) {
+        const reader = new FileReader();
+        reader.onload = (ev) => callback(ev.target.result);
+        reader.readAsDataURL(file);
+      } else alert('Pilih file gambar (jpg/png)');
+    };
+    input.click();
+  }
+
+  function renderOlympic() {
+    const container = document.getElementById('olympicGallery');
+    if (!container) return;
+    container.innerHTML = '';
+    for (let i = 0; i < olympicImages.length; i++) {
+      container.appendChild(createPhotoElement(olympicImages[i], i, 'olympic', 'large'));
+    }
+  }
+  
+  function renderOsis() {
+    const container = document.getElementById('osisGallery');
+    if (!container) return;
+    container.innerHTML = '';
+    for (let i = 0; i < osisImages.length; i++) {
+      container.appendChild(createPhotoElement(osisImages[i], i, 'osis', 'large'));
+    }
+  }
+  
+  function renderHimatekpl() {
+    const container = document.getElementById('himatekplGallery');
+    if (!container) return;
+    container.innerHTML = '';
+    // Hanya 1 foto
+    for (let i = 0; i < himatekplImages.length; i++) {
+      container.appendChild(createPhotoElement(himatekplImages[i], i, 'himatekpl', 'large'));
+    }
+  }
+
+  function setupProfile() {
+    const profileImg = document.getElementById('profileImg');
+    if (profileBase64) profileImg.src = profileBase64;
+    const avatarDiv = document.getElementById('avatarUploader');
+    avatarDiv.addEventListener('click', () => {
+      const input = document.createElement('input');
+      input.type = 'file';
+      input.accept = 'image/*';
+      input.onchange = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = (ev) => {
+            profileBase64 = ev.target.result;
+            profileImg.src = profileBase64;
+            saveProfile();
+          };
+          reader.readAsDataURL(file);
+        }
+      };
+      input.click();
+    });
+  }
+
+  function setupToggle() {
+    const cards = document.querySelectorAll('.category-card');
+    cards.forEach(card => {
+      const header = card.querySelector('.category-header');
+      header.addEventListener('click', (e) => {
+        e.stopPropagation();
+        card.classList.toggle('open');
+      });
+    });
+  }
+
+  function init() {
+    loadFromStorage();
+    setupProfile();
+    renderOlympic();
+    renderOsis();
+    renderHimatekpl();
+    setupToggle();
+  }
+  init();
+</script>
+</body>
+</html>
